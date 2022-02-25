@@ -9,6 +9,8 @@ def gene_shaving(X, y, indices : list = None, alpha : float = 0.05, size : int =
     returns indices of the top k discriminant variables amongst the n candidates """
     p, n = X.shape
     assert y.shape[0] == p, "X must be of shape (p, n) and y of matching shape (p,)"
+    assert 0 < alpha & alpha < 1, "alpha must lie between 0 and 1"
+    assert size > 0, "size must be a positive integer"
 
     if not indices:
         indices = np.arange(n)
